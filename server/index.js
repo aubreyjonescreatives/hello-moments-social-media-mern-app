@@ -9,6 +9,7 @@ import helmet from "helmet";
 import morgan from "morgan"; 
 import path from "path"; 
 import { fileURLToPath } from "url";
+import { register } from "./controllers/auth.js"; 
  
 
 /* SECURITY WITH DOTENV */
@@ -50,6 +51,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage }); 
 
+
+/* LETS CREATE SOME AWESOME ROUTES HERE */
+app.post('/auth/register', upload.single("picture", register)); 
 
 
 /* MONGOOSE CONNECTION */
