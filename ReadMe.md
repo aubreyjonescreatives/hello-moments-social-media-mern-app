@@ -7,7 +7,10 @@
 
 ### Installation Instructions 
 
-
+1. Clone GitHub Repository 
+2. Run NPM / yarn install 
+3. Run NPM / yarn start 
+4. View project locally on your computer and enjoy 
 
 ### Project Image 
 
