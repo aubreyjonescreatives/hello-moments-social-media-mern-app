@@ -55,7 +55,7 @@ const upload = multer({ storage });
 /* MONGOOSE CONNECTION */
 
 const PORT = process.env.PORT || 3002; 
-console.log(`${PORT}`)
+console.log(`${PORT}`) //test dotenv file
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true, 
