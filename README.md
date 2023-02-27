@@ -1,3 +1,5 @@
+## Project Description
+
 ### Hello Moments is a social media app that uses the MERN full stack development process and CRUD system. 
 
 
@@ -5,7 +7,7 @@
 
 
 
-### Installation Instructions 
+## Installation Instructions 
 
 1. Clone GitHub Repository 
 2. Run NPM / yarn install 
@@ -14,12 +16,12 @@
 5. Run NPM / yarn start 
 6. View project locally on your computer and enjoy 
 
-### Project Image 
+## Project Image 
 
 
 
 
-### Project Link 
+## Project Link 
 
 
 
