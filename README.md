@@ -9,8 +9,10 @@
 
 1. Clone GitHub Repository 
 2. Run NPM / yarn install 
-3. Run NPM / yarn start 
-4. View project locally on your computer and enjoy 
+3. Add .env file
+4. Add mongoDB credentials to .env file
+5. Run NPM / yarn start 
+6. View project locally on your computer and enjoy 
 
 ### Project Image 
 
