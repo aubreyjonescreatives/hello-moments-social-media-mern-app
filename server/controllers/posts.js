@@ -78,10 +78,10 @@ export const likePost = async (req, res) => {
         id, 
         { likes: post.likes }, 
         { new: true }
-       )
+       ); 
        
        
-        res.status(201).json(); 
+        res.status(200).json(updatedPost); 
 
     } catch (err) {
         res.status(404).json({ message: err.message})
