@@ -10,9 +10,11 @@ import morgan from "morgan";
 import path from "path"; 
 import authRoutes from './routes/auth.js'; 
 import userRoutes from './routes/users.js'; 
+import postRoutes from './routes/posts.js'; 
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth.js"; 
- 
+import { createPost } from "./controllers/posts.js"; 
+import { verifyToken } from "./middleware/auth.js"; 
 
 /* SECURITY WITH DOTENV */
 
@@ -57,9 +59,11 @@ const upload = multer({ storage });
 /* LETS CREATE SOME AWESOME ROUTES HERE */
 
 app.post("/auth/register", upload.single("picture"), verifyToken, register); 
+app.post("/posts", verifyToken, upload.single("picture"), createPost); 
 
 app.use("/auth", authRoutes); 
 app.use("/users", userRoutes); 
+app.use("/posts", postRoutes); 
 
 
 /* MONGOOSE CONNECTION */
