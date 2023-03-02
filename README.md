@@ -29,3 +29,9 @@
 
 
 #### Contact Info
+
+
+
+#### Huge Thanks and Shout Out to talented Ed Roh for his incredible and current YouTube tutorial:
+
+https://www.youtube.com/watch?v=K8YELRmUb5o
