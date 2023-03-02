@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "node index.js"
+    "start": "node index.js && nodemon index.js"
   },
   "author": "",
   "license": "ISC",
