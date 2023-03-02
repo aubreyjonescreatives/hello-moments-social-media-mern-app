@@ -15,6 +15,8 @@ import { fileURLToPath } from "url";
 import { register } from "./controllers/auth.js"; 
 import { createPost } from "./controllers/posts.js"; 
 import { verifyToken } from "./middleware/auth.js"; 
+import User from "./models/User.js"; 
+
 
 /* SECURITY WITH DOTENV */
 
