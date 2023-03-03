@@ -1,8 +1,8 @@
 import { useState } from "react"; 
 import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from "@mui/material";
 import { Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close}  from "@mui/icons-material"; 
-import {useDispatch, useSelector } from "react-redux"; 
-import {setMode, setLogout} from "state"; 
+import {useDispatch, /* useSelector */ } from "react-redux"; 
+import {setMode, setLogout} from "state/index.js"; 
 import { useNavigate } from "react-router-dom"; 
 import FlexBetween from "components/FlexBetween"; 
 
@@ -15,8 +15,8 @@ const NavBar = () => {
 const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); 
 const dispatch = useDispatch(); 
 const navigate = useNavigate(); 
-const user = useSelector((state) => state.user); 
-const isNonMobileScreens = useMediaQuery("min-width: 1000px")
+//const user = useSelector((state) => state.user); 
+const isNonMobileScreens = useMediaQuery("(min-width: 1000px)"); 
 
 const theme = useTheme(); 
 const neutralLight = theme.palette.neutral.light; 
@@ -25,7 +25,9 @@ const background = theme.palette.background.default;
 const primaryLight = theme.palette.primary.light; 
 const alt = theme.palette.background.alt; 
 
-const fullName = `${user.firstName} ${user.lastName}`; 
+const fullName = 'First Last'; 
+
+// `${user.firstName} ${user.lastName}`
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -34,7 +36,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
         fontWeight="bold"
         fontSize="clamp(1rem, 2rem, 2.25rem)"
         color="primary"
-        onClick={() => navigate("/home")}
+        onClick={() => navigate("/")}
         sx={{
           "&:hover": {
             color: primaryLight, 
@@ -53,12 +55,14 @@ const fullName = `${user.firstName} ${user.lastName}`;
           </FlexBetween>
         )}
     </FlexBetween>
+
+
     {/* Desktop NAV */}
     {isNonMobileScreens ? (
-    <FlexBetween display="flex" flexDirection="column" justifyContent="center" alignItems="center" gap="3rem">
-          <IconButton onClick={() => dispatch(setMode())}>
+    <FlexBetween gap="2rem">
+          <IconButton onClick={() => dispatch(setMode())} sx={{ fontSize: "25px"}}>
           {theme.palette.mode === "dark" ? (
-            <DarkMode sx={{ fontSize: "25px"}} />
+            <DarkMode sx={{ fontSize: "25px" }} />
           ) : (
             <LightMode sx={{ color: dark, fontSize: "25px"}} />
           )}
@@ -80,17 +84,18 @@ const fullName = `${user.firstName} ${user.lastName}`;
               }, 
               "& .MuiSelect-select:focus": {
                 backgroundColor: neutralLight
-              }
+              },
             }}
             input={<InputBase />}
             >
-              <MenuItem value ={fullName}>
+              <MenuItem value={fullName}>
                 <Typography>{fullName}</Typography>
               </MenuItem>
                <MenuItem onClick={() => dispatch(setLogout())}>Logout</MenuItem>
             </Select>
           </FormControl>
-    </FlexBetween>) : (
+    </FlexBetween>
+    ) : (
     <IconButton
     onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
     >
@@ -98,7 +103,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
     </IconButton>
     )}
     {/* MOBILE NAVBAR */}
-    {isNonMobileScreens && isMobileMenuToggled && (
+    {!isNonMobileScreens && isMobileMenuToggled && (
       <Box
       position="fixed"
       right="0"
@@ -107,10 +112,10 @@ const fullName = `${user.firstName} ${user.lastName}`;
       zIndex="10"
       maxWidth="500px"
       minWidth="300px"
-      backgroundColor="background"
+      backgroundColor={background}
       >
         {/* CLOSE ICON */}
-        <Box display="flex" justifyContent="flex-end" p="1rem">
+        <Box display="flex" justifyContent="flex-end" p="1 rem">
           <IconButton
           onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
           >
@@ -120,7 +125,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
 
         {/* MENU ITEMS */}
 
-        <FlexBetween gap="2rem">
+        <FlexBetween display="flex" flexDirection="column" justifyContent="center" alignItems="center" gap="3rem">
           <IconButton onClick={() => dispatch(setMode())}>
           {theme.palette.mode === "dark" ? (
             <DarkMode sx={{ fontSize: "25px"}} />
@@ -149,7 +154,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
             }}
             input={<InputBase />}
             >
-              <MenuItem value ={fullName}>
+              <MenuItem value={fullName}>
                 <Typography>{fullName}</Typography>
               </MenuItem>
                <MenuItem onClick={() => dispatch(setLogout())}>Logout</MenuItem>
@@ -160,7 +165,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
       </Box>
     )}
     </FlexBetween>
-  )
-}
+  ); 
+}; 
 
-export default NavBar
+export default NavBar; 
