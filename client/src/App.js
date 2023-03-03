@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'; 
-import NavBar from 'scenes/NavBar';
-import HomePage from 'scenes/HomePage'; 
-import LoginPage from 'scenes/LoginPage';
-import ProfilePage from 'scenes/ProfilePage';
+import NavBar from 'scenes/NavBar/NavBar';
+import HomePage from 'scenes/HomePage/HomePage'; 
+import LoginPage from 'scenes/LoginPage/LoginPage';
+import ProfilePage from 'scenes/ProfilePage/ProfilePage';
 import { useMemo } from "react"; 
 import { useSelector } from 'react-redux'; 
 import {CssBaseline, ThemeProvider} from "@mui/material"; 
