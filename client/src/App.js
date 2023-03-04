@@ -16,7 +16,6 @@ import { themeSettings } from "./theme";
 const Layout = () => {
   return (
     <>
-    <NavBar />
     <Outlet />
 
     </>
