@@ -1,12 +1,20 @@
 <svg width="100" height="93" viewBox="0 0 100 93" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_2_3)">
-<rect width="100" height="92.3077" fill="white"/>
-<path d="M1 80.8286V17.2571C1 12.1714 8.50958 10.0524 12.2644 9.62857H28.0345L41.5517 2H57.3218L70.8391 9.62857H86.6092C93.8184 9.62857 97.8736 14.7143 99 17.2571V80.8286C99 88.9657 90.7395 91 86.6092 91H12.2644C3.25287 91 1 84.219 1 80.8286Z" stroke="black" stroke-width="3"/>
+<path d="M7 19C7 16.2386 9.23858 14 12 14H88C90.7614 14 93 16.2386 93 19V80C93 82.7614 90.7614 85 88 85H12C9.23858 85 7 82.7614 7 80V19Z" fill="white"/>
+<path d="M44 7L30 15H68L56 7H44Z" fill="white"/>
+<path d="M7 19C7 16.2386 9.23858 14 12 14H88C90.7614 14 93 16.2386 93 19V80C93 82.7614 90.7614 85 88 85H12C9.23858 85 7 82.7614 7 80V19Z" stroke="white" stroke-width="0.5"/>
+<path d="M44 7L30 15H68L56 7H44Z" stroke="white" stroke-width="0.5"/>
+<path d="M3 79.0571V16.9143C3 11.9429 10.2031 9.87143 13.8046 9.45714H28.931L41.8965 2H57.023L69.9885 9.45714H85.1149C92.0299 9.45714 95.9195 14.4286 97 16.9143V79.0571C97 87.0114 89.0766 89 85.1149 89H13.8046C5.16092 89 3 82.3714 3 79.0571Z" stroke="black" stroke-width="5"/>
 <path d="M50 2V91" stroke="black" stroke-width="2"/>
-<circle cx="50" cy="46" r="25" fill="black"/>
 <line x1="1" y1="46.5" x2="99" y2="46.5" stroke="black" stroke-width="3"/>
+<circle cx="50" cy="46" r="25" fill="black"/>
+<mask id="mask0_2_3" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="25" y="21" width="50" height="50">
+<circle cx="50" cy="46" r="25" fill="black"/>
+</mask>
+<g mask="url(#mask0_2_3)">
 <path d="M48.765 27.15V52H43.025V41.815H33.12V52H27.38V27.15H33.12V36.775H43.025V27.15H48.765Z" fill="white"/>
 <path d="M67.84 64V51.31L63.25 60.55H60.55L55.96 51.31V64H51.04V42.7H56.38L61.9 53.83L67.45 42.7H72.76V64H67.84Z" fill="white"/>
+</g>
 </g>
 <defs>
 <clipPath id="clip0_2_3">

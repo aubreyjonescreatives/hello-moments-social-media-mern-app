@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material"; 
 import RegisterLoginForm from "../../components/RegisterLoginForm.jsx"; 
-
+import logo from "../../assets/hmlogo.png"; 
 
 
 
@@ -11,6 +11,7 @@ const LoginPage = () => {
   return (
     <Box>
 <Box width="100%" backgroundColor={theme.palette.background.alt} p="1rem 6%" textAlign="center">
+  <img src={logo} alt="Hello Moments Logo"/>
 <Typography
         fontWeight="bold"
         fontSize="32px"
