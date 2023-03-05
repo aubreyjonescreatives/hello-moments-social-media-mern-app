@@ -6,7 +6,7 @@ import {setMode, setLogout} from "state/index.js";
 import { useNavigate } from "react-router-dom"; 
 import FlexBetween from "components/FlexBetween"; 
 import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
-
+import logo from "../../assets/hmlogo.png";
 
 
 
@@ -23,7 +23,8 @@ const neutralLight = theme.palette.neutral.light;
 const dark = theme.palette.neutral.dark; 
 const background = theme.palette.background.default; 
 const primaryLight = theme.palette.primary.light; 
-const alt = theme.palette.background.alt; 
+const alt = theme.palette.background.alt;
+//const primaryMain = theme.palette.primary.main;  
 
 const fullName = 'First Last'; 
 
@@ -44,6 +45,7 @@ const fullName = 'First Last';
           }, 
         }}
         >
+           <img src={logo} alt="Hello Moments Logo" height="42px"/>
           <img src={HelloMoments} alt="Hello Moments Logo"/>
         </Typography>
         {isNonMobileScreens && (

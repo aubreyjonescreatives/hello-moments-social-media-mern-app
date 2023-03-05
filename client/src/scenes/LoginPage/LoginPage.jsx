@@ -1,30 +1,35 @@
 import React from 'react'
-import { Box, Typography, useTheme, useMediaQuery, Button } from "@mui/material"; 
+import { Box, Typography, useTheme, useMediaQuery, Button, Link } from "@mui/material"; 
 import RegisterLoginForm from "../../components/RegisterLoginForm.jsx"; 
 import logo from "../../assets/hmlogo.png"; 
+import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
+
 
 
 
 const LoginPage = () => {
   const theme = useTheme(); 
   const isNonMobileScreens = useMediaQuery("min-width: 1000px"); 
+  const primaryMain = theme.palette.primary.main; 
+
+
+  const buttonStyles = {
+    color: primaryMain, 
+    fontWeight: '800'
+  }
+
   return (
     <Box>
       <Box display="flex" width="100%" backgroundColor={theme.palette.background.alt}>
-<Box width="90%" p="1rem 6%" textAlign="center" display="flex" justifyContent="center">
+<Box width="95%" p="1rem 6%" justifyContent="flex-start">
   <img src={logo} alt="Hello Moments Logo" height="42px"/>
-<Typography
-        fontWeight="bold"
-        fontSize="32px"
-        color="primary"
-        >
-          Hello Moments
-        </Typography>
+<img src={HelloMoments} alt="Hello Moments Logo"/>
+  
 
         </Box>
-    <Box display="flex" justifyContent="flex-end">
-    <Button fontSize="28px" backgroundColor={theme.palette.background.alt}>SIGN UP</Button>
-      <Button fontSize="28px">LOGIN</Button>
+    <Box display="flex" justifyContent="flex-end" p="1rem 1px">
+    <Button fontSize="14px" sx={buttonStyles} paddingRight="5px">SIGN UP</Button>
+      <Button fontSize="14px" sx={buttonStyles}>LOGIN</Button>
     </Box>
 
    

@@ -50,9 +50,24 @@ export const themeSettings = (mode) => {
             ...(mode === "dark" ? {
                 // dark mode pallete values
             primary: {
-                dark: colorTokens.primary[200], 
-                main: colorTokens.primary[500], 
-                light: colorTokens.primary[800]
+                dark: "#32041F", 
+                main: "#C60F7B", 
+                light: "#D44B9C"
+            }, 
+            primary2: {
+                dark: "#403510", 
+                main: "#FFD23F", 
+                light: "#FFDD6F"
+            }, 
+            secondary: {
+                dark: "#403510", 
+                main: "#FFD23F", 
+                light: "#FFDD6F"
+            }, 
+            secondary2: {
+                dark: "#403510", 
+                main: "#FFD23F", 
+                light: "#FFDD6F"
             }, 
             neutral: {
                 dark: colorTokens.grey[100],
@@ -67,11 +82,26 @@ export const themeSettings = (mode) => {
             }
             } : {
                 // light mode pallete values
-            primary: {
-                dark: colorTokens.primary[700], 
-                main: colorTokens.primary[500], 
-                light: colorTokens.primary[50]
-            }, 
+                primary: {
+                    dark: "#32041F", 
+                    main: "#C60F7B", 
+                    light: "#D44B9C"
+                }, 
+                primary2: {
+                    dark: "#403510", 
+                    main: "#FFD23F", 
+                    light: "#FFDD6F"
+                }, 
+                secondary: {
+                    dark: "#403510", 
+                    main: "#FFD23F", 
+                    light: "#FFDD6F"
+                }, 
+                secondary2: {
+                    dark: "#403510", 
+                    main: "#FFD23F", 
+                    light: "#FFDD6F"
+                }, 
             neutral: {
                 dark: colorTokens.grey[700],
                 main: colorTokens.grey[500],
