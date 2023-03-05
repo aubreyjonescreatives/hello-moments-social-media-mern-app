@@ -1,5 +1,5 @@
 import { useState } from "react"; 
-import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from "@mui/material";
+import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link} from "@mui/material";
 import { Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close}  from "@mui/icons-material"; 
 import {useDispatch, /* useSelector */ } from "react-redux"; 
 import {setMode, setLogout} from "state/index.js"; 
@@ -7,6 +7,14 @@ import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween"; 
 import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
 import logo from "../../assets/hmlogo.png";
+
+
+const iconBox = {
+  display: 'flex', 
+  flexDirection: 'column', 
+  alignItems: 'center'
+}
+
 
 
 
@@ -27,6 +35,35 @@ const alt = theme.palette.background.alt;
 //const primaryMain = theme.palette.primary.main;  
 
 const fullName = 'First Last'; 
+
+
+
+
+const navIconStyles = {
+  fontSize: '25px', 
+  color: {neutralLight}, 
+  "&:hover": {
+    //  color: primaryLight, 
+      cursor: "pointer", 
+    }, 
+ 
+}
+
+const navIconStylesType = {
+  fontSize: '15px', 
+  color: {neutralLight}, 
+  textDecoration: 'none', 
+  "&:hover": {
+  //  color: primaryLight, 
+    cursor: "pointer", 
+    textDecoration: 'none', 
+  }, 
+ 
+}
+
+
+
+
 
 // `${user.firstName} ${user.lastName}`
 
@@ -62,21 +99,32 @@ const fullName = 'First Last';
     {/* Desktop NAV */}
     {isNonMobileScreens ? (
     <FlexBetween gap="2rem">
-          <IconButton onClick={() => dispatch(setMode())} sx={{ fontSize: "25px"}}>
-          {theme.palette.mode === "dark" ? (
-            <DarkMode sx={{ fontSize: "25px" }} />
+          <Link sx={iconBox} onClick={() => dispatch(setMode())}>
+         {theme.palette.mode === "dark" ? (
+            <DarkMode sx={navIconStyles} />
           ) : (
-            <LightMode sx={{ color: dark, fontSize: "25px"}} />
+            <LightMode sx={navIconStyles}/>
           )}
-          </IconButton>
-          <Message sx={{ fontSize: "25px"}} />
-          <Notifications sx={{ fontSize: "25px"}} />
-          <Help sx={{ fontSize: "25px"}} />
+          <Typography sx={navIconStylesType}>Mode</Typography>
+          </Link>
+          <Link sx={iconBox}>
+          <Message sx={navIconStyles}/>
+          <Typography sx={navIconStylesType}>Messages</Typography>
+          </Link>
+          <Link sx={iconBox}>
+          <Notifications sx={navIconStyles} />
+          <Typography sx={navIconStylesType}>Notifications</Typography>
+    
+          </Link>
+          <Link sx={iconBox}>
+          <Help sx={navIconStyles} />
+          <Typography sx={navIconStylesType}>Help</Typography>
+          </Link>
           <FormControl variant="standard" value={fullName}>
             <Select
             value={fullName}
             sx={{
-              backgroundCOlor: neutralLight, 
+              backgroundColor: neutralLight, 
               width: "150px", 
               borderRadius: "0.25rem", 
               p: "0.25rem 1rem", 
@@ -142,7 +190,7 @@ const fullName = 'First Last';
             <Select
             value={fullName}
             sx={{
-              backgroundCOlor: neutralLight, 
+              backgroundColor: neutralLight, 
               width: "150px", 
               borderRadius: "0.25rem", 
               p: "0.25rem 1rem", 
