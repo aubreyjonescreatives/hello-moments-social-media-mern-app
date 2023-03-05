@@ -5,7 +5,7 @@ import {useDispatch, /* useSelector */ } from "react-redux";
 import {setMode, setLogout} from "state/index.js"; 
 import { useNavigate } from "react-router-dom"; 
 import FlexBetween from "components/FlexBetween"; 
-
+import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
 
 
 
@@ -44,7 +44,7 @@ const fullName = 'First Last';
           }, 
         }}
         >
-          Hello Moments
+          <img src={HelloMoments} alt="Hello Moments Logo"/>
         </Typography>
         {isNonMobileScreens && (
         <FlexBetween backgroundColor={neutralLight} borderRadius="9px" gap="3rem" padding="0.1rem 1.5rem">

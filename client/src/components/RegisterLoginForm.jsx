@@ -258,9 +258,14 @@ const RegisterLoginForm = () => {
                         sx={{
                             m: "2rem 0", 
                             p: "1rem", 
+                            fontWeight: "800", 
                             backgroundColor: palette.primary.main, 
-                            color: palette.background.alt, 
-                            "&:hover": {olor: palette.primary.main}
+                            color: palette.primary.dark, 
+                            "&:hover": {
+                                border: `1px solid ${palette.primary.main}`, 
+                                color: palette.primary.main, 
+                                backgroundColor: palette.background.default
+                            }
                         }}
                         >{isLogin ? "LOGIN": "REGISTER"}</Button>
                         <Typography
@@ -273,7 +278,7 @@ const RegisterLoginForm = () => {
                             color: palette.primary.main, 
                             "&:hover": {
                                 cursor: "pointer", 
-                                color: palette.primary.light, 
+                                color: palette.primary.light 
                             }
                         }}
                         >

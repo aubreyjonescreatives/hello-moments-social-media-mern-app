@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material"; 
+import { Box, Typography, useTheme, useMediaQuery, Button } from "@mui/material"; 
 import RegisterLoginForm from "../../components/RegisterLoginForm.jsx"; 
 import logo from "../../assets/hmlogo.png"; 
 
@@ -10,7 +10,8 @@ const LoginPage = () => {
   const isNonMobileScreens = useMediaQuery("min-width: 1000px"); 
   return (
     <Box>
-<Box width="100%" backgroundColor={theme.palette.background.alt} p="1rem 6%" textAlign="center" display="flex" justifyContent="center">
+      <Box display="flex" width="100%" backgroundColor={theme.palette.background.alt}>
+<Box width="90%" p="1rem 6%" textAlign="center" display="flex" justifyContent="center">
   <img src={logo} alt="Hello Moments Logo" height="42px"/>
 <Typography
         fontWeight="bold"
@@ -20,7 +21,13 @@ const LoginPage = () => {
           Hello Moments
         </Typography>
 
+        </Box>
+    <Box display="flex" justifyContent="flex-end">
+    <Button fontSize="28px" backgroundColor={theme.palette.background.alt}>SIGN UP</Button>
+      <Button fontSize="28px">LOGIN</Button>
+    </Box>
 
+   
         </Box>
 
         <Box
