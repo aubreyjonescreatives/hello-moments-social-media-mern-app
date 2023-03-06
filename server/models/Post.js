@@ -25,8 +25,8 @@ const postSchema = mongoose.Schema(
     }, 
     comments: {
         type: Array, 
-        default: []
-    }
+        default: [], 
+    }, 
    
 }, 
 { timestamps: true }
@@ -36,6 +36,6 @@ const postSchema = mongoose.Schema(
 
 ); 
 
-const Post = mongoose.model("Post", postSchema)
+const Post = mongoose.model("Post", postSchema); 
 
 export default Post; 

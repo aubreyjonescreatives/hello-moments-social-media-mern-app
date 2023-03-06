@@ -86,14 +86,11 @@ const RegisterLoginForm = () => {
 
     const login = async (values, onSubmitProps) => {
 
-        const loggedInResponse = await fetch(
-            "http://localhost:3001/auth/login", 
-            {
+        const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
                 method: "POST", 
                 headers: {"Content-Type": "application/json"}, 
                 body: JSON.stringify(values), 
-            }
-        ); 
+    }); 
 
         const loggedIn = await loggedInResponse.json(); 
         onSubmitProps.resetForm(); 
@@ -136,7 +133,7 @@ const RegisterLoginForm = () => {
             handleChange, 
             handleSubmit, 
             setFieldValue, 
-            resetForm
+            resetForm, 
         }) => (
             <form onSubmit={handleSubmit}>
                 <Box 
@@ -159,7 +156,7 @@ const RegisterLoginForm = () => {
                         name="firstName"
                         error={Boolean(touched.firstName) && Boolean(errors.firstName)}
                         helperText={touched.firstName && errors.firstName}
-                        sx={{ gridColumn: "span 4"}}
+                        sx={{ gridColumn: "span 2"}}
                         />
                          <TextField 
                         label="Last Name"
@@ -169,7 +166,7 @@ const RegisterLoginForm = () => {
                         name="lastName"
                         error={Boolean(touched.lastName) && Boolean(errors.lastName)}
                         helperText={touched.lastName && errors.lastName}
-                        sx={{ gridColumn: "span 4"}}
+                        sx={{ gridColumn: "span 2"}}
                         />
                          <TextField 
                         label="Location"
@@ -265,21 +262,22 @@ const RegisterLoginForm = () => {
                                 border: `1px solid ${palette.primary.main}`, 
                                 color: palette.primary.main, 
                                 backgroundColor: palette.background.default
-                            }
+                            }, 
                         }}
-                        >{isLogin ? "LOGIN": "REGISTER"}</Button>
+                        >
+                            {isLogin ? "LOGIN": "REGISTER"}
+                            </Button>
                         <Typography
                         onClick={() => {
                             setPageType(isLogin ? "register" : "login"); 
                             resetForm(); 
                         }}
                         sx={{
-                            textDecoration: "underline", 
                             color: palette.primary.main, 
                             "&:hover": {
                                 cursor: "pointer", 
                                 color: palette.primary.light 
-                            }
+                            }, 
                         }}
                         >
                             {isLogin
@@ -298,7 +296,7 @@ const RegisterLoginForm = () => {
 
     </Formik>
 
-  )
-}
+  ); 
+}; 
 
-export default RegisterLoginForm
+export default RegisterLoginForm; 
