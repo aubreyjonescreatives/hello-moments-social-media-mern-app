@@ -80,7 +80,7 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(() => {
     app.listen(PORT, () => console.log(`Server Started: ${PORT}`)); 
    /* TESTING DATA */
-    User.insertMany(users); 
-    Post.insertMany(posts); 
+    // User.insertMany(users); 
+    // Post.insertMany(posts); 
 }).catch((error) => console.log(`${error} something went wrong.`)); 
 
