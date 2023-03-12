@@ -26,6 +26,8 @@ console.log(process.env.MONGO_URL) //testing .env file
 
 
 
+
+
 /* SERVER CONFIGURATION */
 
 const __filename = fileURLToPath(import.meta.url); 
@@ -34,14 +36,32 @@ const __dirname = path.dirname(__filename);
  
 const app = express(); 
 
+
 app.use(express.json()); 
 app.use(helmet()); 
 app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"})); 
 app.use(morgan("common")); 
 app.use(bodyParser.json({ limit: "30mb", extended: true })); 
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true})); 
-app.use(cors()); 
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));  
 app.use('/assets', express.static(path.join(__dirname, 'public/assets'))); 
+
+/* Because we hate CORS */
+
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH' ]
+}));
+
+
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    res.header("Access-Control-Allow-Methods", "*")
+    next()
+})
+
+
 
 
 /* SERVER STORAGE */
@@ -52,7 +72,7 @@ const storage = multer.diskStorage({
     }, 
     filename: function (req, file, cb) {
         cb(null, file.originalname); 
-    }
+    },
 }); 
 
 
@@ -61,12 +81,14 @@ const upload = multer({ storage });
 
 /* LETS CREATE SOME AWESOME ROUTES HERE */
 
-app.post("/auth/register", upload.single("picture"), verifyToken, register); 
+app.post("/auth/register", upload.single("picture"), register); 
 app.post("/posts", verifyToken, upload.single("picture"), createPost); 
+
 
 app.use("/auth", authRoutes); 
 app.use("/users", userRoutes); 
 app.use("/posts", postRoutes); 
+
 
 
 /* MONGOOSE CONNECTION */

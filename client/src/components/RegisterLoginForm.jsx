@@ -64,7 +64,7 @@ const RegisterLoginForm = () => {
         // send form info 
         const formData = new FormData();
         for (let value in values) {
-            formData.append(value, values[value])
+            formData.append(value, values[value]); 
         } 
         formData.append("picturePath", values.picture.name); 
 
@@ -194,7 +194,7 @@ const RegisterLoginForm = () => {
                         p="1rem"
                         >
                             <Dropzone
-                            acceptedFiles=".jpg, .jpeg, .png"
+                            acceptedFiles=".jpg,.jpeg,.png"
                             multiple={false}
                             onDrop={(acceptedFiles) => 
                             setFieldValue("picture", acceptedFiles[0])

@@ -47,7 +47,7 @@ const navIconStyles = {
       cursor: "pointer", 
     }, 
  
-}
+};
 
 const navIconStylesType = {
   fontSize: '15px', 
@@ -59,7 +59,7 @@ const navIconStylesType = {
     textDecoration: 'none', 
   }, 
  
-}
+};
 
 
 
