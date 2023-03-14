@@ -256,12 +256,11 @@ const RegisterLoginForm = () => {
                             m: "2rem 0", 
                             p: "1rem", 
                             fontWeight: "800", 
-                            backgroundColor: palette.primary.main, 
-                            color: palette.primary.dark, 
+                            backgroundColor: palette.secondary.main, 
+                            color: palette.neutral.light, 
                             "&:hover": {
-                                border: `1px solid ${palette.primary.main}`, 
-                                color: palette.primary.main, 
-                                backgroundColor: palette.background.default
+                               color: palette.neutral.light,  
+                                backgroundColor: palette.secondary2.main
                             }, 
                         }}
                         >
@@ -274,9 +273,12 @@ const RegisterLoginForm = () => {
                         }}
                         sx={{
                             color: palette.primary.main, 
+                            fontSize: '16px', 
+                            fontWeight: "800", 
                             "&:hover": {
                                 cursor: "pointer", 
-                                color: palette.primary.light 
+                                color: palette.primary.light, 
+                                fontWeight: "800", 
                             }, 
                         }}
                         >

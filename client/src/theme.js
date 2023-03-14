@@ -72,14 +72,14 @@ export const themeSettings = (mode) => {
                     light: "#FFDD6F"
                 }, 
                 secondary: {
-                    dark: "#403510", 
-                    main: "#FFD23F", 
-                    light: "#FFDD6F"
+                    dark: "#3D150B", 
+                    main: "#F2542D", 
+                    light: "#F2542D"
                 }, 
                 secondary2: {
-                    dark: "#403510", 
-                    main: "#FFD23F", 
-                    light: "#FFDD6F"
+                    dark: "#083015", 
+                    main: "#20BF55", 
+                    light: "#58CF80F"
                 }, 
             neutral: {
                 dark: colorTokens.grey[700],
