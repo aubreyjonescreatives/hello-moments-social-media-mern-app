@@ -272,12 +272,12 @@ const RegisterLoginForm = () => {
                             resetForm(); 
                         }}
                         sx={{
-                            color: palette.primary.main, 
+                            color: palette.secondary.main, 
                             fontSize: '16px', 
                             fontWeight: "800", 
                             "&:hover": {
                                 cursor: "pointer", 
-                                color: palette.primary.light, 
+                                color: palette.secondary2.main, 
                                 fontWeight: "800", 
                             }, 
                         }}
