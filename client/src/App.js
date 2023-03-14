@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'; 
 import NavBar from 'scenes/NavBar/NavBar';
-import HomePage from 'scenes/HomePage/HomePage'; 
+import HelloMoments from 'scenes/HelloMoments/HelloMoments'; 
+import NewsFeed from 'scenes/NewsFeed/NewsFeed'; 
 import LoginPage from 'scenes/LoginPage/LoginPage';
 import ProfilePage from 'scenes/ProfilePage/ProfilePage';
 import { useMemo } from "react"; 
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/', 
-        element: <HomePage />
+        element: <HelloMoments />
+      },
+      {
+        path: '/feed', 
+        element: <NewsFeed />
       }, 
       {
         path: '/login', 
@@ -49,7 +54,7 @@ function App() {
 
  const mode = useSelector((state) => state.mode); 
  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]); 
-
+ const isAuth = Boolean(useSelector((state) => state.token)); 
 
   return (
    <>

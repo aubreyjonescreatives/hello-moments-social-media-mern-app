@@ -101,7 +101,7 @@ const RegisterLoginForm = () => {
                     token: loggedIn.token, 
                 })
             ); 
-            navigate("/"); 
+            navigate("/feed"); 
         }
 
 

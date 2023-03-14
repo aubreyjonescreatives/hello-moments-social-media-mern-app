@@ -2,18 +2,18 @@ import React from 'react'
 import { Box } from "@mui/material"; 
 import NavBar from "../NavBar/NavBar.jsx"; 
 
-const HomePage = () => {
+const NewsFeed = () => {
   return (
     <>
     <Box>
       <NavBar />
     </Box>
     <Box>
-    <div>HomePage</div>
+    <div>Feed</div>
     </Box>
     </>
 
   )
 }
 
-export default HomePage
+export default NewsFeed;
