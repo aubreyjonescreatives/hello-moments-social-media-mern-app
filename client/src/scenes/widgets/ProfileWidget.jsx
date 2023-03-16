@@ -4,6 +4,8 @@ import {
     LocationOnOutlined, 
     WorkOutlineOutlined,
 } from "@mui/icons-material"; 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import { Box, Typography, Divider, useTheme } from "@mui/material"; 
 import UserImage from "components/UserImage"; 
 import FlexBetween from "components/FlexBetween"; 
@@ -38,7 +40,7 @@ const ProfileWidget = ({ userId, picturePath}) => {
 
     useEffect(() => {
         getUser(); 
-    }, []) // disable react-hooks/exhaustive-deps 
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps 
 
     if (!user) {
         return null; 
@@ -65,7 +67,7 @@ const ProfileWidget = ({ userId, picturePath}) => {
         <FlexBetween gap="1rem">
             <UserImage image={picturePath} />
         <Box>
-            <Typoraphy
+            <Typography
             variant="h4"
             color={dark}
             fontWeight="500"
@@ -77,7 +79,7 @@ const ProfileWidget = ({ userId, picturePath}) => {
             }}
             >
                 {firstName} {lastName}
-            </Typoraphy>
+            </Typography>
             <Typography color={medium}>{friends.length} friends</Typography>
         </Box>
         <ManageAccountsOutlined />
@@ -116,14 +118,40 @@ const ProfileWidget = ({ userId, picturePath}) => {
         {/* ROW # 4 */}
 
         <Box p="1rem 0">
-            <FlexBetween mb="0.5rem">
-                <Typography color={medium}>Profile Views</Typography>
-                <Typography color={medium} fontWeight="500">{viewedProfile}</Typography>
-            </FlexBetween>
-            <FlexBetween mb="0.5rem">
-                <Typography color={medium}>Post Impressions</Typography>
-                <Typography color={medium} fontWeight="500">{impressions}</Typography>
-            </FlexBetween>
+            <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">
+                Social Profiles
+            </Typography>
+
+            <FlexBetween gap="1rem" mb="0.5rem">
+                <FlexBetween gap="1rem">
+                    <TwitterIcon />
+                <Box>
+                    <Typography color={main} fontWeight="500">
+                        Twitter
+                    </Typography>
+                    <Typography color={main}>
+                        Social Network
+                    </Typography>
+                </Box>
+                </FlexBetween>
+                <EditOutlined sx={{ color: main }} /> 
+               </FlexBetween>
+
+
+               <FlexBetween gap="1rem" mb="0.5rem">
+                <FlexBetween gap="1rem">
+                    <LinkedInIcon />
+                <Box>
+                    <Typography color={main} fontWeight="500">
+                        LinkedInIcon
+                    </Typography>
+                    <Typography color={main}>
+                        Network Platform
+                    </Typography>
+                </Box>
+                </FlexBetween>
+                <EditOutlined sx={{ color: main }} /> 
+               </FlexBetween>
 
         </Box>
 
