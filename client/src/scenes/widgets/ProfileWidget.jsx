@@ -58,7 +58,10 @@ const ProfileWidget = ({ userId, picturePath}) => {
 
   return (
     <WidgetWrapper>
-        { 
+
+          {/* ROW # 1 */}
+
+          
         <FlexBetween
         gap="0.5rem"
         pb="1.1rem"
@@ -74,20 +77,25 @@ const ProfileWidget = ({ userId, picturePath}) => {
             sx={{
                 "&:hover": {
                     color: palette.primary.light, 
-                    cursor: "pointer"
-                }
+                    cursor: "pointer",
+                },
             }}
             >
                 {firstName} {lastName}
             </Typography>
             <Typography color={medium}>{friends.length} friends</Typography>
         </Box>
+      
+        </FlexBetween>
         <ManageAccountsOutlined />
         </FlexBetween>
-
-        <Divider />
+      
+      
+      <Divider />
 
          {/* ROW # 2 */}
+
+       
 
         <Box p="1rem 0">
             <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
@@ -114,6 +122,8 @@ const ProfileWidget = ({ userId, picturePath}) => {
             </FlexBetween>
 
         </Box>
+
+        <Divider />
 
         {/* ROW # 4 */}
 
@@ -155,11 +165,9 @@ const ProfileWidget = ({ userId, picturePath}) => {
 
         </Box>
 
-        </FlexBetween>
-        
-        }
+
     </WidgetWrapper>
-  )
+  ); 
 }; 
 
 export default ProfileWidget; 
