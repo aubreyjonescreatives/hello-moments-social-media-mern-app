@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import NavBar from "../NavBar/NavBar.jsx"; 
 import ProfileWidget from "../widgets/ProfileWidget.jsx"; 
 import CreatePostWidget from "../widgets/CreatePostWidget.jsx"; 
+import PostsWidget from "scenes/widgets/PostsWidget.jsx";
 
 const NewsFeed = () => {
   const isNonMobileScreens = useMediaQuery("min-width:1000px"); 
@@ -26,6 +27,7 @@ const NewsFeed = () => {
         mt={isNonMobileScreens ? undefined : "2rem"}
         >
           <CreatePostWidget picturePath={picturePath} />
+          <PostsWidget userId={_id} />
 
         </Box>
         {isNonMobileScreens && (
