@@ -39,7 +39,7 @@ const CreatePostWidget = ( { picturePath }) => {
         const posts = await response.json(); 
         dispatch(setPosts({ posts })); 
         setImage(null); 
-        setPost("")
+        setPost("");
     }; 
 
 
@@ -56,7 +56,7 @@ const CreatePostWidget = ( { picturePath }) => {
                 width: "100%", 
                 backgroundColor: palette.neutral.light, 
                 borderRadius: "2rem",
-                padding: "1rem 2rem"
+                padding: "1rem 2rem",
             }}
             
             />
@@ -119,7 +119,7 @@ const CreatePostWidget = ( { picturePath }) => {
                 color={mediumMain}
                 sx={{ "&:hover": { cursor: "pointer", color: medium}}}
                 >
-
+                    Image
                 </Typography>
             </FlexBetween>
             {isNonMobileScreens ? (
@@ -141,8 +141,23 @@ const CreatePostWidget = ( { picturePath }) => {
 
                 </>
             ) : <>
-            
+            <FlexBetween gap="0.25rem">
+                    <MoreHorizOutlined sx={{ color: mediumMain}} />
+                    <Typography color={mediumMain}>More</Typography>
+                </FlexBetween>
             </>}
+            <Button 
+            disabled={!post}
+            onClick={handlePost}
+            sx={{
+                color: palette.background.alt, 
+                backgroundColor: palette.primary.main, 
+                borderRadius: "3rem", 
+            }}
+            >
+                POST
+
+            </Button>
         </FlexBetween>
     </WidgetWrapper>
   )
