@@ -153,7 +153,7 @@ const ProfileWidget = ({ userId, picturePath}) => {
                     <LinkedInIcon />
                 <Box>
                     <Typography color={main} fontWeight="500">
-                        LinkedInIcon
+                        LinkedIn
                     </Typography>
                     <Typography color={main}>
                         Network Platform
