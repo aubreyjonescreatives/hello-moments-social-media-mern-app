@@ -109,6 +109,8 @@ const ProfileWidget = ({ userId, picturePath}) => {
 
         </Box>
 
+        <Divider />
+
          {/* ROW # 3 */}
 
         <Box p="1rem 0">
