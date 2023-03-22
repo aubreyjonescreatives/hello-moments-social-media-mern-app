@@ -1,6 +1,6 @@
 import { useState } from "react"; 
 import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link} from "@mui/material";
-import { Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close}  from "@mui/icons-material"; 
+import { Search, Message, DarkMode, LightMode, Notifications, Menu, Close}  from "@mui/icons-material"; 
 import {useDispatch, useSelector } from "react-redux"; 
 import {setMode, setLogout} from "state/index.js"; 
 import { useNavigate } from "react-router-dom"; 
@@ -74,7 +74,7 @@ const navIconStylesType = {
         fontWeight="bold"
         fontSize="clamp(1rem, 2rem, 2.25rem)"
         color="primary"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/feed")}
         sx={{
           "&:hover": {
             color: primaryLight, 
@@ -115,10 +115,6 @@ const navIconStylesType = {
           <Notifications sx={navIconStyles} />
           <Typography sx={navIconStylesType}>Notifications</Typography>
     
-          </Link>
-          <Link sx={iconBox}>
-          <Help sx={navIconStyles} />
-          <Typography sx={navIconStylesType}>Help</Typography>
           </Link>
           <FormControl variant="standard" value={fullName}>
             <Select
@@ -185,7 +181,6 @@ const navIconStylesType = {
           </IconButton>
           <Message sx={{ fontSize: "25px"}} />
           <Notifications sx={{ fontSize: "25px"}} />
-          <Help sx={{ fontSize: "25px"}} />
           <FormControl variant="standard" value={fullName}>
             <Select
             value={fullName}
