@@ -33,9 +33,9 @@ const medium = palette.neutral.medium;
     <FlexBetween>
         <Typography color={main}>Forever Cosmetics</Typography>
         <Typography color={medium}>forevercosmetics.com</Typography>
-        <Typography color={medium} m="0.5rem 0">All natural cosmetics that beautify the skin.</Typography>
-    </FlexBetween>
-
+       </FlexBetween>
+       <Typography color={medium} m="0.5rem 0">All natural cosmetics that beautify the skin.</Typography>
+  
    </WidgetWrapper>
   )
 }
