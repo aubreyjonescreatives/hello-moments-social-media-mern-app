@@ -49,7 +49,7 @@ const CreatePostWidget = ( { picturePath }) => {
         <FlexBetween gap="1.5rem">
             <UserImage image={picturePath} /> 
             <InputBase
-            placeholder="Show and tell about a moment..."
+            placeholder="What is your moment..."
             onChange={(e) => setPost(e.target.value)}
             value={post}
             sx={{
@@ -153,6 +153,7 @@ const CreatePostWidget = ( { picturePath }) => {
                 color: palette.neutral.light, 
                 backgroundColor: palette.primary.main, 
                 borderRadius: "3rem", 
+                weight: "900"
             }}
             >
                 POST
@@ -161,6 +162,6 @@ const CreatePostWidget = ( { picturePath }) => {
         </FlexBetween>
     </WidgetWrapper>
   )
-}
+}; 
 
-export default CreatePostWidget
+export default CreatePostWidget; 
