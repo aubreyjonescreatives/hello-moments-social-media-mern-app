@@ -1,5 +1,5 @@
 import { useState } from "react"; 
-import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link,} from "@mui/material";
+import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link, Avatar} from "@mui/material";
 import { Search, Message, DarkMode, LightMode, Notifications, Menu, Close}  from "@mui/icons-material"; 
 import LogoutIcon from '@mui/icons-material/Logout';
 import {useDispatch, useSelector } from "react-redux"; 
@@ -25,7 +25,7 @@ const iconBoxSmall = {
 
 
 
-const NavBar = ( {picturePath}) => {
+const NavBar = ( { image, size="60px" }) => {
 
 const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); 
 const dispatch = useDispatch(); 
@@ -115,7 +115,7 @@ const navIconStylesType = {
           )}
           <Typography sx={navIconStylesType}>Mode</Typography>
           </Link>
-          <Link sx={iconBox}>
+          <Link sx={iconBox} onClick={() => navigate("/messages")}>
           <Message sx={navIconStyles}/>
           <Typography sx={navIconStylesType}>Messages</Typography>
           </Link>
@@ -126,14 +126,14 @@ const navIconStylesType = {
           </Link>
             <FlexBetween>
           <Link sx={iconBox}>
-          <UserImage image={picturePath} sx={navIconStyles} />
+          <Avatar src={`http://localhost:3001/assets/${image}`} alt="user" sx={navIconStyles}/>
           <Typography sx={navIconStylesType}>Hi, {fullName} </Typography>
     
           </Link>
           </FlexBetween>
 
           <Link sx={iconBox}>
-          <LogoutIcon image={picturePath} sx={navIconStyles} />
+          <LogoutIcon sx={navIconStyles} />
           <Typography sx={navIconStylesType} onClick={() => dispatch(setLogout())}>Logout </Typography>
     
           </Link>
@@ -194,14 +194,14 @@ const navIconStylesType = {
           </FlexBetween>
           <FlexBetween>
           <Link sx={iconBoxSmall}>
-          <UserImage image={picturePath} />
+          <Avatar src={`http://localhost:3001/assets/${image}`} alt="user"  sx={{ fontSize: "25px"}} />
           <Typography sx={navIconStylesType}>{fullName} </Typography>
     
           </Link>
           </FlexBetween>
 
           <Link sx={iconBoxSmall}>
-          <LogoutIcon image={picturePath} />
+          <LogoutIcon />
           <Typography sx={navIconStylesType} onClick={() => dispatch(setLogout())}>Logout </Typography>
     
           </Link>

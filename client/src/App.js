@@ -4,6 +4,7 @@ import HelloMoments from 'scenes/HelloMoments/HelloMoments';
 import NewsFeed from 'scenes/NewsFeed/NewsFeed'; 
 import LoginPage from 'scenes/LoginPage/LoginPage';
 import ProfilePage from 'scenes/ProfilePage/ProfilePage';
+import MomentMessages from 'scenes/MomentMessages/MomentMessages'; 
 import { useMemo } from "react"; 
 import { useSelector } from 'react-redux'; 
 import {CssBaseline, ThemeProvider} from "@mui/material"; 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: '/profile/:userId', 
         element: <ProfilePage />
+      }, 
+      {
+        path: '/messages', 
+        element: <MomentMessages />
       }, 
     ]
   }
