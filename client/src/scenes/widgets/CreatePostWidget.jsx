@@ -147,13 +147,18 @@ const CreatePostWidget = ( { picturePath }) => {
                 </FlexBetween>
             </>}
             <Button 
-            disabled={!post}
             onClick={handlePost}
             sx={{
-                color: palette.primary.dark, 
-                backgroundColor: palette.primary.main, 
+                color: palette.neutral.light, 
+                backgroundColor: palette.secondary.main, 
                 borderRadius: "3rem", 
-                weight: "900"
+                weight: "900",
+                "&:hover": {
+                    backgroundColor: palette.secondary2.main,
+                    color: palette.neutral.light, 
+                      cursor: "pointer", 
+                       
+                    }, 
             }}
             >
                 POST

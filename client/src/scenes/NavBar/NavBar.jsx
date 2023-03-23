@@ -37,7 +37,7 @@ const theme = useTheme();
 const neutralLight = theme.palette.neutral.light; 
 const dark = theme.palette.neutral.dark; 
 const background = theme.palette.background.default; 
-const primaryLight = theme.palette.primary.light; 
+const secondaryMain = theme.palette.secondary.main; 
 const alt = theme.palette.background.alt;
 //const primaryMain = theme.palette.primary.main;  
 
@@ -49,7 +49,7 @@ const fullName = `${user.firstName} ${user.lastName}`;
 
 const navIconStyles = {
   fontSize: '25px', 
-  color: {neutralLight}, 
+  color: {secondaryMain}, 
   "&:hover": {
     //  color: primaryLight, 
       cursor: "pointer", 
@@ -59,7 +59,7 @@ const navIconStyles = {
 
 const navIconStylesType = {
   fontSize: '15px', 
-  color: {neutralLight}, 
+  color: {secondaryMain}, 
   textDecoration: 'none', 
   "&:hover": {
   //  color: primaryLight, 
@@ -85,7 +85,7 @@ const navIconStylesType = {
         onClick={() => navigate("/feed")}
         sx={{
           "&:hover": {
-            color: primaryLight, 
+            color: secondaryMain, 
             cursor: "pointer", 
           }, 
         }}
@@ -93,14 +93,7 @@ const navIconStylesType = {
            <img src={logo} alt="Hello Moments Logo" height="42px"/>
           <img src={HelloMoments} alt="Hello Moments Logo"/>
         </Typography>
-        {isNonMobileScreens && (
-        <FlexBetween backgroundColor={neutralLight} borderRadius="9px" gap="3rem" padding="0.1rem 1.5rem">
-          <InputBase placeholder="Search..." />
-          <IconButton>
-            <Search />
-          </IconButton>
-          </FlexBetween>
-        )}
+       
     </FlexBetween>
 
 
@@ -181,7 +174,7 @@ const navIconStylesType = {
           </Link>
           </FlexBetween>
           <FlexBetween>
-          <Link sx={iconBoxSmall}>
+          <Link sx={iconBoxSmall} onClick={() => navigate("/messages")}>
           <Message sx={{ fontSize: "25px"}} />
           <Typography sx={navIconStylesType}>Messages</Typography>
           </Link>
@@ -194,7 +187,7 @@ const navIconStylesType = {
           </FlexBetween>
           <FlexBetween>
           <Link sx={iconBoxSmall}>
-          <Avatar src={`http://localhost:3001/assets/${image}`} alt="user"  sx={{ fontSize: "25px"}} />
+          <Avatar src={`http://localhost:3001/assets/${image}`} alt="user" />
           <Typography sx={navIconStylesType}>{fullName} </Typography>
     
           </Link>
