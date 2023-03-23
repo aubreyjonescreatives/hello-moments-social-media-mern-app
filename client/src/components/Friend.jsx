@@ -17,7 +17,9 @@ const Friend = ( {friendId, name, subtitle, userPicturePath}) => {
     const friends = useSelector((state) => state.user.friends); 
 
     const { palette } = useTheme(); 
-    const primaryLight = palette.primary.light; 
+    const primaryLight = palette.primary.light;
+    const secondary = palette.secondary.main; 
+    const secondary2 = palette.secondary2.main;  
     const primaryDark = palette.primary.dark; 
     const main = palette.neutral.main; 
     const medium = palette.neutral.medium; 
@@ -55,7 +57,7 @@ const Friend = ( {friendId, name, subtitle, userPicturePath}) => {
                 fontWeight="500"
                 sx={{
                     "&:hover": {
-                        color: palette.primary.light, 
+                        color: palette.secondary2.light, 
                         cursor: "pointer" 
 
                     }
@@ -63,7 +65,7 @@ const Friend = ( {friendId, name, subtitle, userPicturePath}) => {
                 >
                     {name}
                 </Typography>
-                <Typography colr={medium} fontSize="0.75rem">
+                <Typography color={medium} fontSize="0.75rem">
                 {subtitle}
                 </Typography>
 
@@ -71,13 +73,20 @@ const Friend = ( {friendId, name, subtitle, userPicturePath}) => {
         </FlexBetween>
         <IconButton
         onClick={() => patchFriend()}
-        sx={{ backgroundColor: primaryLight, p: "0.6rem"}}
+        sx={{ backgroundColor: secondary, p: "0.6rem", color: palette.neutral.light,
+        "&:hover": {
+            backgroundColor: palette.secondary2.main, 
+            cursor: "pointer" 
+
+        }
+    
+    }}
         
         >
             {isFriend ? (
-                <PersonRemoveOutlined sx={{ color: primaryDark}} />
+                <PersonRemoveOutlined />
             ) : (
-                <PersonAddOutlined sx={{ color: primaryDark}} />
+                <PersonAddOutlined  />
             ) 
            
             }
