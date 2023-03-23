@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 const ProfileWidget = ({ userId, picturePath}) => {
   const [user, setUser] = useState(null); 
   const { palette } = useTheme(); 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();    
   const token = useSelector((state) => state.token); 
   const dark = palette.neutral.dark; 
   const medium = palette.neutral.medium; 

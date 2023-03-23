@@ -1,13 +1,14 @@
 import { useState } from "react"; 
-import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link} from "@mui/material";
+import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link,} from "@mui/material";
 import { Search, Message, DarkMode, LightMode, Notifications, Menu, Close}  from "@mui/icons-material"; 
+import LogoutIcon from '@mui/icons-material/Logout';
 import {useDispatch, useSelector } from "react-redux"; 
 import {setMode, setLogout} from "state/index.js"; 
 import { useNavigate } from "react-router-dom"; 
 import FlexBetween from "components/FlexBetween"; 
 import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
 import logo from "../../assets/hmlogo.png";
-
+import UserImage from "components/UserImage";
 
 const iconBox = {
   display: 'flex', 
@@ -15,10 +16,16 @@ const iconBox = {
   alignItems: 'center'
 }
 
+const iconBoxSmall = {
+  display: 'flex', 
+  flexDirection: 'row', 
+  alignItems: 'center'
+}
 
 
 
-const NavBar = () => {
+
+const NavBar = ( {picturePath}) => {
 
 const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); 
 const dispatch = useDispatch(); 
@@ -35,6 +42,7 @@ const alt = theme.palette.background.alt;
 //const primaryMain = theme.palette.primary.main;  
 
 const fullName = `${user.firstName} ${user.lastName}`; 
+
 
 
 
@@ -116,30 +124,20 @@ const navIconStylesType = {
           <Typography sx={navIconStylesType}>Notifications</Typography>
     
           </Link>
-          <FormControl variant="standard" value={fullName}>
-            <Select
-            value={fullName}
-            sx={{
-              backgroundColor: neutralLight, 
-              width: "150px", 
-              borderRadius: "0.25rem", 
-              p: "0.25rem 1rem", 
-              "& .MUISvgIcon-root": {
-                pr: "0.25rem", 
-                width: "3rem",
-              }, 
-              "& .MuiSelect-select:focus": {
-                backgroundColor: neutralLight
-              },
-            }}
-            input={<InputBase />}
-            >
-              <MenuItem value={fullName}>
-                <Typography>{fullName}</Typography>
-              </MenuItem>
-               <MenuItem onClick={() => dispatch(setLogout())}>Logout</MenuItem>
-            </Select>
-          </FormControl>
+            <FlexBetween>
+          <Link sx={iconBox}>
+          <UserImage image={picturePath} sx={navIconStyles} />
+          <Typography sx={navIconStylesType}>Hi, {fullName} </Typography>
+    
+          </Link>
+          </FlexBetween>
+
+          <Link sx={iconBox}>
+          <LogoutIcon image={picturePath} sx={navIconStyles} />
+          <Typography sx={navIconStylesType} onClick={() => dispatch(setLogout())}>Logout </Typography>
+    
+          </Link>
+
     </FlexBetween>
     ) : (
     <IconButton
@@ -172,39 +170,41 @@ const navIconStylesType = {
         {/* MENU ITEMS */}
 
         <FlexBetween display="flex" flexDirection="column" justifyContent="center" alignItems="center" gap="3rem">
-          <IconButton onClick={() => dispatch(setMode())}>
-          {theme.palette.mode === "dark" ? (
-            <DarkMode sx={{ fontSize: "25px"}} />
+          <FlexBetween>
+          <Link sx={iconBoxSmall} onClick={() => dispatch(setMode())}>
+         {theme.palette.mode === "dark" ? (
+            <DarkMode sx={navIconStyles} />
           ) : (
-            <LightMode sx={{ color: dark, fontSize: "25px"}} />
+            <LightMode sx={navIconStyles}/>
           )}
-          </IconButton>
+          <Typography sx={navIconStylesType}>Mode</Typography>
+          </Link>
+          </FlexBetween>
+          <FlexBetween>
+          <Link sx={iconBoxSmall}>
           <Message sx={{ fontSize: "25px"}} />
+          <Typography sx={navIconStylesType}>Messages</Typography>
+          </Link>
+          </FlexBetween>
+          <FlexBetween>
+          <Link sx={iconBoxSmall}>
           <Notifications sx={{ fontSize: "25px"}} />
-          <FormControl variant="standard" value={fullName}>
-            <Select
-            value={fullName}
-            sx={{
-              backgroundColor: neutralLight, 
-              width: "150px", 
-              borderRadius: "0.25rem", 
-              p: "0.25rem 1rem", 
-              "& .MUISvgIcon-root": {
-                pr: "0.25rem", 
-                width: "3rem",
-              }, 
-              "& .MuiSelect-select:focus": {
-                backgroundColor: neutralLight
-              }
-            }}
-            input={<InputBase />}
-            >
-              <MenuItem value={fullName}>
-                <Typography>{fullName}</Typography>
-              </MenuItem>
-               <MenuItem onClick={() => dispatch(setLogout())}>Logout</MenuItem>
-            </Select>
-          </FormControl>
+          <Typography sx={navIconStylesType}>Notifications</Typography>
+          </Link>
+          </FlexBetween>
+          <FlexBetween>
+          <Link sx={iconBoxSmall}>
+          <UserImage image={picturePath} />
+          <Typography sx={navIconStylesType}>{fullName} </Typography>
+    
+          </Link>
+          </FlexBetween>
+
+          <Link sx={iconBoxSmall}>
+          <LogoutIcon image={picturePath} />
+          <Typography sx={navIconStylesType} onClick={() => dispatch(setLogout())}>Logout </Typography>
+    
+          </Link>
     </FlexBetween>
 
       </Box>
