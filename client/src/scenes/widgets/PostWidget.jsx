@@ -31,6 +31,7 @@ const PostWidget = ({
     const { palette } = useTheme(); 
     const main = palette.neutral.main; 
     const primary = palette.primary.main; 
+    const secondary2 = palette.secondary2.main; 
 
     const patchLike = async () => {
         const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
@@ -77,7 +78,7 @@ const PostWidget = ({
                 <FlexBetween gap="0.3rem">
                     <IconButton onClick={patchLike}>
                         {isLiked ? (
-                            <FavoriteOutlined sx={{ color: primary}} />
+                            <FavoriteOutlined sx={{ color: secondary2}} />
 
                         ) : (
                             <FavoriteBorderOutlined />
