@@ -1,15 +1,16 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'; 
-import NavBar from 'scenes/NavBar/NavBar';
-import HelloMoments from 'scenes/HelloMoments/HelloMoments'; 
-import NewsFeed from 'scenes/NewsFeed/NewsFeed'; 
-import LoginPage from 'scenes/LoginPage/LoginPage';
-import ProfilePage from 'scenes/ProfilePage/ProfilePage';
-import MomentMessages from 'scenes/MomentMessages/MomentMessages'; 
 import { useMemo } from "react"; 
 import { useSelector } from 'react-redux'; 
 import {CssBaseline, ThemeProvider} from "@mui/material"; 
 import { createTheme } from "@mui/material/styles"; 
 import { themeSettings } from "./theme"; 
+import HelloMoments from 'scenes/HelloMoments/HelloMoments'; 
+import NewsFeed from 'scenes/NewsFeed/NewsFeed'; 
+import LoginPage from 'scenes/LoginPage/LoginPage';
+import ProfilePage from 'scenes/ProfilePage/ProfilePage';
+import MomentMessages from 'scenes/MomentMessages/MomentMessages'; 
+import MomentNotifications from 'scenes/MomentNotifications/MomentNotifications';
+
  
 
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/messages', 
         element: <MomentMessages />
+      }, 
+      {
+        path: '/notifications', 
+        element: <MomentNotifications />
       }, 
     ]
   }

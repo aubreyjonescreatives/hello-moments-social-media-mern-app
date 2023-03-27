@@ -1,50 +1,102 @@
 import { useState, useEffect } from "react"; 
-import Axios from "axios"; 
-import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link, Avatar} from "@mui/material";
-import { Search, Message, DarkMode, LightMode, Notifications, Menu, Close}  from "@mui/icons-material"; 
-import LogoutIcon from '@mui/icons-material/Logout';
 import {useDispatch, useSelector } from "react-redux"; 
+import { useParams } from "react-router-dom";
+import UserImage from "../../components/UserImage";
+import { Box, IconButton, Typography, Menu, MenuItem, ListItemIcon, Tooltip, useTheme, useMediaQuery, Link, Avatar, Divider} from "@mui/material";
+import { Message, DarkMode, LightMode, Notifications, PersonAdd, Settings, Close, Logout}  from "@mui/icons-material"; 
+import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout'; 
 import {setMode, setLogout} from "state/index.js"; 
 import { useNavigate } from "react-router-dom"; 
 import FlexBetween from "components/FlexBetween"; 
 import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
 import logo from "../../assets/hmlogo.png";
-import UserImage from "../../components/UserImage.jsx";
+import NotificationsWidget from "../MomentNotifications/MomentNotifications"; 
+import FriendListWidget from 'scenes/widgets/FriendListWidget';
+import ProfileWidget from 'scenes/widgets/ProfileWidget';
+import PostsWidget from 'scenes/widgets/PostsWidget';
+import CreatePostWidget from 'scenes/widgets/CreatePostWidget';
 
 
 
 
 
 
-
-const NavBar = ( { userPicturePath }) => {
-
-const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); 
-
-
-
-const dispatch = useDispatch(); 
-const navigate = useNavigate(); 
-
-const user = useSelector((state) => state.user); 
-
-// media query RWD
-
-const isNonMobileScreens = useMediaQuery("(min-width: 1000px)"); 
+const NavBar = () => {
+  
+  
+  const [ user, setUser ] = useState(null);
+  const { userId } = useParams(); 
+  const token = useSelector((state) => state.token); 
+  const dispatch = useDispatch(); 
+  const navigate = useNavigate(); 
 
 
-// theme variables
+  // RWD
+  
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)"); 
+
+  // theme variables
 
 const theme = useTheme(); 
-const neutralLight = theme.palette.neutral.light; 
-const dark = theme.palette.neutral.dark; 
 const background = theme.palette.background.default; 
 const secondaryMain = theme.palette.secondary.main; 
 const secondary2Main = theme.palette.secondary2.main; 
 const alt = theme.palette.background.alt;
-//const primaryMain = theme.palette.primary.main;  
+//const primaryMain = theme.palette.primary.main; 
 
-const fullName = `${user.firstName} ${user.lastName}`; 
+
+  
+const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); 
+const [ anchorEl, setAnchorEl] = useState(null); 
+
+
+// retrieve user info from database 
+const userInfo = useSelector((state) => state.user);
+
+const fullName = `${userInfo.firstName} ${userInfo.lastName}`; 
+
+const userProfileImage = `${userInfo.picturePath}`
+
+
+
+const open = Boolean(anchorEl); 
+ 
+
+
+const getUser = async () => {
+  const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`},
+  });
+  const data = await response.json(); 
+  setUser(data); 
+}; 
+
+useEffect(() => {
+  getUser(); 
+}, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+if (!user) return null; 
+
+
+
+
+const handleClick = (event) => {
+  setAnchorEl(event.currentTarget); 
+}; 
+
+const handleClose = () => {
+  setAnchorEl(null); 
+}; 
+
+
+
+// media query RWD
+
+
+
+
 
 
 
@@ -145,32 +197,115 @@ const navIconStylesAvatar = {
           <Message sx={navIconStyles}/>
           <Typography sx={navIconStylesType}>Messages</Typography>
           </Link>
-          <Link sx={iconBox}>
+
+
+            {/* Notifications */}
+
+    
+           
+          <Link sx={iconBox} onClick={() => navigate("/notifications")}>
           <Notifications sx={navIconStyles} />
           <Typography sx={navIconStylesType}>Notifications</Typography>
     
           </Link>
+
+
+           
+ {/* End Notifications */}
+
+
+
+
+           
+           {/* User Account Dropdown */}
+           
+            <IconButton
+            onClick={handleClick}
+            size="small"
+            aria-controls={open ? 'account-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            
+            >
             <FlexBetween>
           <Link sx={iconBox}>
-         
-          <Avatar  sx={navIconStylesAvatar} alt="user"><UserImage image={userPicturePath}/></Avatar>
+            
+          <Avatar  sx={navIconStylesAvatar} alt="user"> <UserImage image={user.picturePath} /> </Avatar>
           <Typography sx={navIconStylesType}>Hi, {fullName} </Typography>
-    
           </Link>
           </FlexBetween>
+            </IconButton>
+      
 
-          <Link sx={iconBox}>
-          <LogoutIcon sx={navIconStyles} />
-          <Typography sx={navIconStylesType} onClick={() => dispatch(setLogout())}>Logout </Typography>
-    
-          </Link>
+           <Menu
+        anchorEl={anchorEl}
+        id="account-menu"
+        open={open}
+        onClose={handleClose}
+        onClick={handleClose}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            overflow: 'visible',
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            mt: 1.5,
+            '& .MuiAvatar-root': {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
+            },
+            '&:before': {
+              content: '""',
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              right: 14,
+              width: 10,
+              height: 10,
+              bgcolor: 'background.paper',
+              transform: 'translateY(-50%) rotate(45deg)',
+              zIndex: 0,
+            },
+          },
+        }}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+      >
+        <MenuItem onClick={() => navigate(`/profile/${userId}`)}>
+        <Avatar  sx={navIconStylesAvatar} alt="user"></Avatar>
+          <Typography sx={navIconStylesType}>Hi, {fullName} </Typography>
+        </MenuItem>
+        <Divider />
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <PersonAdd fontSize="small" />
+          </ListItemIcon>
+          Add another account
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+          Settings
+        </MenuItem>
+        <MenuItem onClick={() => dispatch(setLogout())}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Logout
+        </MenuItem>
+      </Menu>
+           
+ {/* End User Account Dropdown */}
+
 
     </FlexBetween>
     ) : (
     <IconButton
     onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
     >
-      <Menu />
+      <MenuIcon />
     </IconButton>
     )}
     {/* MOBILE NAVBAR */}
@@ -221,7 +356,7 @@ const navIconStylesAvatar = {
           </FlexBetween>
           <FlexBetween>
           <Link sx={iconBoxSmall}>
-          <Avatar  sx={navIconStylesAvatar} alt="user"><UserImage image={userPicturePath}/></Avatar>
+          <Avatar  sx={navIconStylesAvatar} alt="user"></Avatar>
           <Typography sx={navIconStylesType}>{fullName} </Typography>
     
           </Link>
