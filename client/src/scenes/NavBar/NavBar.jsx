@@ -1,4 +1,5 @@
-import { useState } from "react"; 
+import { useState, useEffect } from "react"; 
+import Axios from "axios"; 
 import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery, Link, Avatar} from "@mui/material";
 import { Search, Message, DarkMode, LightMode, Notifications, Menu, Close}  from "@mui/icons-material"; 
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -8,13 +9,60 @@ import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween"; 
 import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
 import logo from "../../assets/hmlogo.png";
-import UserImage from "components/UserImage";
+import UserImage from "../../components/UserImage.jsx";
+
+
+
+
+
+
+
+const NavBar = ( { userPicturePath }) => {
+
+const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); 
+
+
+
+const dispatch = useDispatch(); 
+const navigate = useNavigate(); 
+
+const user = useSelector((state) => state.user); 
+
+// media query RWD
+
+const isNonMobileScreens = useMediaQuery("(min-width: 1000px)"); 
+
+
+// theme variables
+
+const theme = useTheme(); 
+const neutralLight = theme.palette.neutral.light; 
+const dark = theme.palette.neutral.dark; 
+const background = theme.palette.background.default; 
+const secondaryMain = theme.palette.secondary.main; 
+const secondary2Main = theme.palette.secondary2.main; 
+const alt = theme.palette.background.alt;
+//const primaryMain = theme.palette.primary.main;  
+
+const fullName = `${user.firstName} ${user.lastName}`; 
+
+
+
+
 
 const iconBox = {
   display: 'flex', 
   flexDirection: 'column', 
-  alignItems: 'center'
+  alignItems: 'center',
+  textDecoration: 'none', 
+  color: `${secondaryMain}`, 
+  "&:hover": {
+    color: `${secondary2Main}`, 
+      cursor: "pointer", 
+    }, 
+ 
 }
+
 
 const iconBoxSmall = {
   display: 'flex', 
@@ -25,47 +73,34 @@ const iconBoxSmall = {
 
 
 
-const NavBar = ( { image, size="60px" }) => {
-
-const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false); 
-const dispatch = useDispatch(); 
-const navigate = useNavigate(); 
-const user = useSelector((state) => state.user); 
-const isNonMobileScreens = useMediaQuery("(min-width: 1000px)"); 
-
-const theme = useTheme(); 
-const neutralLight = theme.palette.neutral.light; 
-const dark = theme.palette.neutral.dark; 
-const background = theme.palette.background.default; 
-const secondaryMain = theme.palette.secondary.main; 
-const alt = theme.palette.background.alt;
-//const primaryMain = theme.palette.primary.main;  
-
-const fullName = `${user.firstName} ${user.lastName}`; 
-
-
-
 
 
 const navIconStyles = {
   fontSize: '25px', 
-  color: {secondaryMain}, 
-  "&:hover": {
-    //  color: primaryLight, 
-      cursor: "pointer", 
-    }, 
  
+  
+  
 };
 
 const navIconStylesType = {
   fontSize: '15px', 
-  color: {secondaryMain}, 
+
+ 
+ 
+ 
+};
+
+
+const navIconStylesAvatar = {
+  width: '25px', 
+  height: '25px', 
+  fontSize: '20px', 
+  color: {secondary2Main}, 
   textDecoration: 'none', 
   "&:hover": {
-  //  color: primaryLight, 
-    cursor: "pointer", 
-    textDecoration: 'none', 
-  }, 
+    //  color: primaryLight, 
+      cursor: "pointer", 
+    }, 
  
 };
 
@@ -81,11 +116,9 @@ const navIconStylesType = {
         <Typography
         fontWeight="bold"
         fontSize="clamp(1rem, 2rem, 2.25rem)"
-        color="primary"
         onClick={() => navigate("/feed")}
         sx={{
-          "&:hover": {
-            color: secondaryMain, 
+          "&:hover": { 
             cursor: "pointer", 
           }, 
         }}
@@ -119,7 +152,8 @@ const navIconStylesType = {
           </Link>
             <FlexBetween>
           <Link sx={iconBox}>
-          <Avatar src={`http://localhost:3001/assets/${image}`} alt="user" sx={navIconStyles}/>
+         
+          <Avatar  sx={navIconStylesAvatar} alt="user"><UserImage image={userPicturePath}/></Avatar>
           <Typography sx={navIconStylesType}>Hi, {fullName} </Typography>
     
           </Link>
@@ -187,7 +221,7 @@ const navIconStylesType = {
           </FlexBetween>
           <FlexBetween>
           <Link sx={iconBoxSmall}>
-          <Avatar src={`http://localhost:3001/assets/${image}`} alt="user" />
+          <Avatar  sx={navIconStylesAvatar} alt="user"><UserImage image={userPicturePath}/></Avatar>
           <Typography sx={navIconStylesType}>{fullName} </Typography>
     
           </Link>

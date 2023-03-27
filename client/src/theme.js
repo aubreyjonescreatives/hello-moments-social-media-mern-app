@@ -29,24 +29,24 @@ export const themeSettings = (mode) => {
             ...(mode === "dark" ? {
                 // dark mode pallete values
             primary: {
-                dark: "#32041F", 
+                dark: "#D44BGC", 
                 main: "#C60F7B", 
                 light: "#D44B9C"
             }, 
             primary2: {
-                dark: "#403510", 
+                dark: "#FFDD6F", 
                 main: "#FFD23F", 
                 light: "#FFDD6F"
             }, 
             secondary: {
-                dark: "#403510", 
-                main: "#FFD23F", 
-                light: "#FFDD6F"
+                dark: "#F57F61", 
+                main: "#F2542D", 
+                light: "#F2542D"
             }, 
             secondary2: {
-                dark: "#403510", 
-                main: "#FFD23F", 
-                light: "#FFDD6F"
+                dark: "#58CF80", 
+                main: "#20BF55", 
+                light: "#20BF55"
             }, 
             neutral: {
                 dark: colorTokens.grey[100],
@@ -79,7 +79,7 @@ export const themeSettings = (mode) => {
                 secondary2: {
                     dark: "#083015", 
                     main: "#20BF55", 
-                    light: "#58CF80F"
+                    light: "#20BF55"
                 }, 
             neutral: {
                 dark: colorTokens.grey[700],
