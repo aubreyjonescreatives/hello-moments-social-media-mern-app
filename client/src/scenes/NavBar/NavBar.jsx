@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"; 
 import {useDispatch, useSelector } from "react-redux"; 
-import { useParams } from "react-router-dom";
 import UserImage from "../../components/UserImage";
-import { Box, IconButton, Typography, Menu, MenuItem, ListItemIcon, Tooltip, useTheme, useMediaQuery, Link, Avatar, Divider} from "@mui/material";
+import { Box, IconButton, Typography, Menu, MenuItem, ListItemIcon, useTheme, useMediaQuery, Link, Avatar, Divider} from "@mui/material";
 import { Message, DarkMode, LightMode, Notifications, PersonAdd, Settings, Close, Logout}  from "@mui/icons-material"; 
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout'; 
@@ -11,11 +10,6 @@ import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween"; 
 import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
 import logo from "../../assets/hmlogo.png";
-import NotificationsWidget from "../MomentNotifications/MomentNotifications"; 
-import FriendListWidget from 'scenes/widgets/FriendListWidget';
-import ProfileWidget from 'scenes/widgets/ProfileWidget';
-import PostsWidget from 'scenes/widgets/PostsWidget';
-import CreatePostWidget from 'scenes/widgets/CreatePostWidget';
 
 
 
@@ -292,11 +286,11 @@ const navIconStylesAvatar = {
           </ListItemIcon>
           Add another account
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => navigate(`/settingsandprivacy`)}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          Settings and Privacy
         </MenuItem>
         <MenuItem onClick={() => dispatch(setLogout())}>
           <ListItemIcon>

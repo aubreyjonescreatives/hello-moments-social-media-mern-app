@@ -10,7 +10,7 @@ import LoginPage from 'scenes/LoginPage/LoginPage';
 import ProfilePage from 'scenes/ProfilePage/ProfilePage';
 import MomentMessages from 'scenes/MomentMessages/MomentMessages'; 
 import MomentNotifications from 'scenes/MomentNotifications/MomentNotifications';
-
+import SettingsandPrivacy from 'scenes/SettingsandPrivacy/SettingsandPrivacy';
  
 
 
@@ -56,6 +56,10 @@ const router = createBrowserRouter([
         path: '/notifications', 
         element: <MomentNotifications />
       }, 
+      {
+        path: '/settingsandprivacy', 
+        element: <SettingsandPrivacy />
+      }, 
     ]
   }
 ])
@@ -64,7 +68,7 @@ function App() {
 
  const mode = useSelector((state) => state.mode); 
  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]); 
- const isAuth = Boolean(useSelector((state) => state.token)); 
+// const isAuth = Boolean(useSelector((state) => state.token)); 
 
   return (
    <>
