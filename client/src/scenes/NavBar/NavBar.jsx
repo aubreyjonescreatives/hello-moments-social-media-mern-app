@@ -26,7 +26,7 @@ const NavBar = () => {
   
   
   const [ user, setUser ] = useState(null);
-  const { userId } = useParams(); 
+ // const { userId } = useParams(); 
   const token = useSelector((state) => state.token); 
   const dispatch = useDispatch(); 
   const navigate = useNavigate(); 
@@ -58,6 +58,9 @@ const fullName = `${userInfo.firstName} ${userInfo.lastName}`;
 
 const userProfileImage = `${userInfo.picturePath}`
 
+
+const userId = `${userInfo._id}`
+console.log(userId)
 
 
 const open = Boolean(anchorEl); 
@@ -119,7 +122,13 @@ const iconBox = {
 const iconBoxSmall = {
   display: 'flex', 
   flexDirection: 'row', 
-  alignItems: 'center'
+  alignItems: 'center', 
+  color: `${secondaryMain}`, 
+  textDecoration: 'none', 
+  "&:hover": {
+    color: `${secondary2Main}`, 
+      cursor: "pointer", 
+    },
 }
 
 
@@ -356,7 +365,7 @@ const navIconStylesAvatar = {
           </FlexBetween>
           <FlexBetween>
           <Link sx={iconBoxSmall}>
-          <Avatar  sx={navIconStylesAvatar} alt="user"></Avatar>
+          <Avatar  sx={navIconStylesAvatar} alt="user"> <UserImage image={userProfileImage} /> </Avatar>
           <Typography sx={navIconStylesType}>{fullName} </Typography>
     
           </Link>
