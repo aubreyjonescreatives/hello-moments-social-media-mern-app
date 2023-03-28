@@ -46,8 +46,10 @@ https://vivek-kaushal.medium.com/deploying-a-mern-web-app-to-heroku-b12c74c8b3c4
 
 ## Contact
 
-### For questions or comments: 
+### For questions or comments here is my contact info: 
 
-GitHub: 
+### GitHub: 
+
+
 https://github.com/aubreyjonescreatives
 
