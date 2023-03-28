@@ -17,10 +17,10 @@ const Friend = ( {friendId, name, subtitle, userPicturePath}) => {
     const friends = useSelector((state) => state.user.friends); 
 
     const { palette } = useTheme(); 
-    const primaryLight = palette.primary.light;
+  //  const primaryLight = palette.primary.light;
     const secondary = palette.secondary.main; 
-    const secondary2 = palette.secondary2.main;  
-    const primaryDark = palette.primary.dark; 
+  // const secondary2 = palette.secondary2.main;  
+  //  const primaryDark = palette.primary.dark; 
     const main = palette.neutral.main; 
     const medium = palette.neutral.medium; 
 

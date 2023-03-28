@@ -1,11 +1,7 @@
 import { Box, useMediaQuery } from "@mui/material"; 
-import { useSelector } from "react-redux"; 
+//import { useSelector } from "react-redux"; 
 import NavBar from "../NavBar/NavBar.jsx"; 
-import ProfileWidget from "../widgets/ProfileWidget.jsx"; 
-import CreatePostWidget from "../widgets/CreatePostWidget.jsx"; 
-import PostsWidget from "scenes/widgets/PostsWidget.jsx";
-import AdvertWidget from "scenes/widgets/AdvertWidget.jsx";
-import FriendListWidget from "scenes/widgets/FriendListWidget.jsx";
+
 
 
 

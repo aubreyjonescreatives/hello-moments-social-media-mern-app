@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Typography, useTheme, useMediaQuery, Button, Link } from "@mui/material"; 
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material"; 
 import RegisterLoginForm from "../../components/RegisterLoginForm.jsx"; 
-import logo from "../../assets/hmlogo.png"; 
-import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
+//import logo from "../../assets/hmlogo.png"; 
+//import HelloMoments from "../../assets/hellomomentstextlogo.png"; 
 import LoginNavBarComponent from "../LoginNavBar/LoginNavBar.jsx"; 
 
 
@@ -10,13 +10,13 @@ import LoginNavBarComponent from "../LoginNavBar/LoginNavBar.jsx";
 const LoginPage = () => {
   const theme = useTheme(); 
   const isNonMobileScreens = useMediaQuery("min-width: 1000px"); 
-  const primaryMain = theme.palette.primary.main; 
+ // const primaryMain = theme.palette.primary.main; 
 
 
-  const buttonStyles = {
-    color: primaryMain, 
-    fontWeight: '800'
-  }
+  // const buttonStyles = {
+  //   color: primaryMain, 
+  //   fontWeight: '800'
+  // }
 
   return (
     <Box>

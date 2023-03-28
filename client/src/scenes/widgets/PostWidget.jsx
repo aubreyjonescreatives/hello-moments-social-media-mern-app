@@ -30,7 +30,7 @@ const PostWidget = ({
     const likeCount = Object.keys(likes).length; 
     const { palette } = useTheme(); 
     const main = palette.neutral.main; 
-    const primary = palette.primary.main; 
+   // const primary = palette.primary.main; 
     const secondary2 = palette.secondary2.main; 
 
     const patchLike = async () => {
@@ -66,6 +66,7 @@ const PostWidget = ({
            height="auto"
            style={{ borderRadius: "0.75rem", marginTop: "0.75rem"}}
            src={`http://localhost:3001/assets/${picturePath}`}
+           alt="profile pic"
            />
            
            

@@ -1,14 +1,14 @@
 import React from 'react'
-import { Box, Typography, useTheme, useMediaQuery, Button, Link } from "@mui/material"; 
-import RegisterLoginForm from "../../components/RegisterLoginForm.jsx"; 
+import { Box, useTheme, Button, } from "@mui/material"; 
+//import RegisterLoginForm from "../../components/RegisterLoginForm.jsx"; 
 import HelloMomentsLogo from "../../assets/hmlogo50px.png"; 
-import { Navigate } from "react-router-dom"; 
+//import { Navigate } from "react-router-dom"; 
 
 
 
 const LoginNavBar = () => {
   const theme = useTheme(); 
-  const isNonMobileScreens = useMediaQuery("min-width: 1000px"); 
+ // const isNonMobileScreens = useMediaQuery("min-width: 1000px"); 
   const primaryMain = theme.palette.primary.main; 
 
 
