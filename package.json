@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "concurrently --kill-others \"cd server && nodemon index.js \" \"cd client && npm run start \""
+    "start": "concurrently --kill-others \"cd server && npm i && node index.js \" \"cd client && npm i && npm run start \""
   },
   "repository": {
     "type": "git",
