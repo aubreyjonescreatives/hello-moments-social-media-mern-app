@@ -62,15 +62,6 @@ app.use((req, res, next) => {
 })
 
 
-// connect server to client for production
-
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
-
-app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
-});
 
 /* SERVER STORAGE */
 
@@ -96,6 +87,19 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.use("/auth", authRoutes); 
 app.use("/users", userRoutes); 
 app.use("/posts", postRoutes); 
+
+
+
+// connect server to client for production
+
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 
 
 
