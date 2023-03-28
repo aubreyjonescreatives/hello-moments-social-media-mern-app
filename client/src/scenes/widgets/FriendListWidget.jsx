@@ -44,6 +44,7 @@ useEffect(() => {
             {friends.map((friend) => (
                 <Friend 
                 key={friend._id}
+                friendId={friend._id}
                 name={`${friend.firstName} ${friend.lastName}`}
                 subtitle={friend.occupation}
                 userPicturePath={friend.picturePath}
@@ -51,7 +52,7 @@ useEffect(() => {
             ))}
         </Box>
     </WidgetWrapper>
-  )
-}
+  );
+};
 
-export default FriendListWidget
+export default FriendListWidget;
