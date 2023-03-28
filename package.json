@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "concurrently --kill-others \"cd server && npm run start \" \"cd client && npm run start \"", 
+    "start": "concurrently --kill-others \"cd server && npm run start \" \"cd client && npm run start \"",
     "start-dev": "concurrently --kill-others \"cd server && nodemon index.js \" \"cd client && npm run start \""
   },
   "repository": {
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app#readme",
   "dependencies": {
     "concurrently": "^7.6.0",
+    "express": "^4.18.2",
     "gitignore": "^0.7.0",
     "nodemon": "^2.0.22"
   }
