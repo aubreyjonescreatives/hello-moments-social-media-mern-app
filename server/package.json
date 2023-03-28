@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "index.js",
+    "start": "node index.js",
     "start-dev": "nodemon index.js",
     "seed": "node data/index.js"
   },
