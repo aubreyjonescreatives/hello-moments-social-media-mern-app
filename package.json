@@ -1,0 +1,31 @@
+{
+  "name": "hello-moments-social-media-mern-app",
+  "version": "1.0.0",
+  "description": "Welcome to a responsive social media app! ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "concurrently --kill-others \"cd server && nodemon index.js \" \"cd client && npm run start \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app.git"
+  },
+  "keywords": [
+    "social",
+    "media",
+    "web",
+    "MERN",
+    "app"
+  ],
+  "author": "Aubrey Jones",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app/issues"
+  },
+  "homepage": "https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "gitignore": "^0.7.0"
+  }
+}
