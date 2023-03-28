@@ -105,6 +105,8 @@ app.use("/posts", postRoutes);
 
 /* MONGOOSE CONNECTION */
 
+mongoose.set('strictQuery', false); 
+
 const PORT = process.env.PORT || 3002; 
 console.log(`${PORT}`) //test dotenv file
 
