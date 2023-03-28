@@ -230,7 +230,7 @@ const navIconStylesAvatar = {
             <FlexBetween>
           <Link sx={iconBox}>
             
-          <Avatar  sx={navIconStylesAvatar} alt="user"> <UserImage image={user.picturePath} /> </Avatar>
+          <Avatar  sx={navIconStylesAvatar} alt="user"> <UserImage image={userProfileImage} /> </Avatar>
           <Typography sx={navIconStylesType}>Hi, {fullName} </Typography>
           </Link>
           </FlexBetween>
@@ -273,7 +273,7 @@ const navIconStylesAvatar = {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={() => navigate(`/profile/${userId}`)}>
-        <Avatar  sx={navIconStylesAvatar} alt="user"></Avatar>
+        <Avatar  sx={navIconStylesAvatar} alt="user"> <UserImage image={userProfileImage} /> </Avatar>
           <Typography sx={navIconStylesType}>Hi, {fullName} </Typography>
         </MenuItem>
         <Divider />
