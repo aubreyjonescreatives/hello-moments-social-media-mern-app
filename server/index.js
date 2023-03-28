@@ -62,6 +62,8 @@ app.use((req, res, next) => {
 })
 
 
+// connect server to client for production
+
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 }
