@@ -38,7 +38,7 @@
 https://www.youtube.com/watch?v=K8YELRmUb5o
 
 
-##### And Medium Heroku Tutorial: 
+##### And Vivek Kaushal's Medium Heroku Tutorial: 
 
 https://vivek-kaushal.medium.com/deploying-a-mern-web-app-to-heroku-b12c74c8b3c4
 
