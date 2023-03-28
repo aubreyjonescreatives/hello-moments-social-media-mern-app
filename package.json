@@ -26,6 +26,7 @@
   "homepage": "https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app#readme",
   "dependencies": {
     "concurrently": "^7.6.0",
-    "gitignore": "^0.7.0"
+    "gitignore": "^0.7.0",
+    "nodemon": "^2.0.22"
   }
 }
