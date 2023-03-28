@@ -22,7 +22,7 @@ import { users, posts } from "./data/index.js";  */
 /* SECURITY WITH DOTENV */
 
 dotenv.config(); 
-console.log(process.env.MONGO_URL) //testing .env file
+console.log(process.env.MONGO_URI) //testing .env file
 
 
 
@@ -96,7 +96,7 @@ app.use("/posts", postRoutes);
 const PORT = process.env.PORT || 3002; 
 console.log(`${PORT}`) //test dotenv file
 
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
 }).then(() => {
