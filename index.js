@@ -25,22 +25,6 @@ dotenv.config();
 console.log(process.env.MONGO_URI) //testing .env file
 
 
-/* Because we hate CORS */
-
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH' ]
-}));
-
-
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-    res.header("Access-Control-Allow-Methods", "*")
-    next()
-})
-
 
 
 
@@ -61,6 +45,21 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));  
 app.use('/assets', express.static(path.join(__dirname, 'public/assets'))); 
 
+/* Because we hate CORS */
+
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH' ]
+}));
+
+
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    res.header("Access-Control-Allow-Methods", "*")
+    next()
+})
 
 
 
