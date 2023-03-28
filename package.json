@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Welcome to a responsive social media app! ",
   "main": "index.js",
-  "engines": {
-    "node": "14.15.4", 
-    "npm": "6.14.10"
-  },
   "scripts": {
     "test": "jest",
     "start": "concurrently --kill-others \"cd server && npm run start \" \"cd client && npm run start \"",
