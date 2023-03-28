@@ -1,1 +1,1 @@
-web: node server/index.js
+web: concurrently --kill-others \"cd server && npm i && node index.js \" \"cd client && npm i && npm run build && npm run start
