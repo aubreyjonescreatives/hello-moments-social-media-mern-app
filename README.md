@@ -28,7 +28,7 @@
 
 
 
-## Contact Info
+
 
 
 ## Credits
@@ -41,4 +41,13 @@ https://www.youtube.com/watch?v=K8YELRmUb5o
 ##### And Vivek Kaushal's Medium Heroku Tutorial: 
 
 https://vivek-kaushal.medium.com/deploying-a-mern-web-app-to-heroku-b12c74c8b3c4
+
+
+
+## Contact
+
+### For questions or comments: 
+
+GitHub: 
+https://github.com/aubreyjonescreatives
 
