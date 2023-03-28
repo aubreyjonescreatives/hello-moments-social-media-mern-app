@@ -14,7 +14,7 @@ const SettingsandPrivacy = () => {
     <>
     <NavBar />
     <WidgetWrapper>
-  Hello World
+  Hello World. This is the settings and privacy page.
   </WidgetWrapper>
   
   </>
