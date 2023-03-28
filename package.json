@@ -1,34 +1,32 @@
 {
-  "name": "hello-moments-social-media-mern-app",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Welcome to a responsive social media app! ",
+  "description": "server side to social media mern app",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "concurrently --kill-others \"cd server && npm run start \" \"cd client && npm run start \"",
-    "start-dev": "concurrently --kill-others \"cd server && nodemon index.js \" \"cd client && npm run start \""
+    "start": "npm install && node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "start-dev": "nodemon index.js",
+    "seed": "node data/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app.git"
-  },
-  "keywords": [
-    "social",
-    "media",
-    "web",
-    "MERN",
-    "app"
-  ],
-  "author": "Aubrey Jones",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app/issues"
-  },
-  "homepage": "https://github.com/aubreyjonescreatives/hello-moments-social-media-mern-app#readme",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "concurrently": "^7.6.0",
+    "axios": "^1.3.4",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "gitignore": "^0.7.0",
-    "nodemon": "^2.0.22"
+    "gridfs-stream": "^1.1.1",
+    "helmet": "^6.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.10.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-gridfs-storage": "^5.0.2"
   }
 }
