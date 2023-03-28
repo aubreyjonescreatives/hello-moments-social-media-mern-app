@@ -28,10 +28,10 @@
 
 
 
-#### Contact Info
+## Contact Info
 
 
-#### Credits
+## Credits
 
 ##### Huge Thanks and Shout Out to talented Ed Roh for his incredible and current YouTube tutorial:
 
