@@ -38,8 +38,8 @@ const app = express();
 
 
 app.use(express.json()); 
-app.use(helmet()); 
-app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"})); 
+//app.use(helmet()); 
+app.use(helmet({ contentSecurityPolicy: false })); 
 app.use(morgan("common")); 
 app.use(bodyParser.json({ limit: "30mb", extended: true })); 
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));  
@@ -62,13 +62,13 @@ app.use((req, res, next) => {
 })
 
 
-app.use(function (req, res, next) {
-    res.setHeader(
-      'Content-Security-Policy-Report-Only',
-      "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
-    );
-    next();
-  });
+// app.use(function (req, res, next) {
+//     res.setHeader(
+//       'Content-Security-Policy-Report-Only',
+//       "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
+//     );
+//     next();
+//   });
 
 
 
